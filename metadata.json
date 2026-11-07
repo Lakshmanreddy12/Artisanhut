@@ -1,0 +1,6 @@
+{
+  "name": "ArtisanHaat - Handcrafted Wooden Furniture & Village Marketplace",
+  "description": "Direct-from-village marketplace connecting rural carpenters and craftspersons with homes and interior designers. Features Digital Sathi voice listing, custom dimensions, timber certification, and heavy freight tracking.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

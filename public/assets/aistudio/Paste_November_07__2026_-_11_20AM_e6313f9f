@@ -1,0 +1,997 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>ArtisanHaat | Handcrafted Wooden Furniture & Village Marketplace</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&family=Playfair+Display:wght@600;700;800&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --terracotta: #A0522D;
+      --terracotta-dark: #7A3B1E;
+      --sand: #FAF5EF;
+      --sand-dark: #F0E6D8;
+      --wood-dark: #2A1810;
+      --text: #2C2623;
+      --muted: #6E6259;
+      --card-bg: #FFFFFF;
+      --green: #2E7D32;
+      --border: #E8DCCF;
+      --shadow: 0 8px 24px rgba(42, 24, 16, 0.08);
+      --radius: 12px;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      background-color: var(--sand);
+      color: var(--text);
+      line-height: 1.5;
+    }
+
+    /* Top Announcement Banner */
+    .top-banner {
+      background: var(--wood-dark);
+      color: #FAF5EF;
+      padding: 8px 16px;
+      font-size: 0.85rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+    .top-banner a { color: #F5B041; text-decoration: none; font-weight: 600; }
+
+    /* Header & Navigation */
+    header {
+      background: white;
+      border-bottom: 1px solid var(--border);
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+    .nav-container {
+      max-width: 1240px;
+      margin: 0 auto;
+      padding: 14px 20px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+    }
+    .logo-group {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      text-decoration: none;
+      color: var(--wood-dark);
+    }
+    .logo-badge {
+      width: 40px;
+      height: 40px;
+      background: var(--terracotta);
+      color: white;
+      border-radius: 8px;
+      display: grid;
+      place-items: center;
+      font-family: 'Playfair Display', serif;
+      font-weight: 800;
+      font-size: 1.3rem;
+    }
+    .brand-title {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.4rem;
+      font-weight: 700;
+      line-height: 1.1;
+    }
+    .brand-sub {
+      font-size: 0.75rem;
+      color: var(--muted);
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 20px;
+      align-items: center;
+      list-style: none;
+    }
+    .nav-links a {
+      text-decoration: none;
+      color: var(--text);
+      font-size: 0.95rem;
+      font-weight: 500;
+      transition: color 0.2s;
+    }
+    .nav-links a:hover { color: var(--terracotta); }
+
+    .nav-actions {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+    .btn {
+      padding: 9px 18px;
+      border-radius: 8px;
+      border: 1px solid transparent;
+      font-size: 0.9rem;
+      font-weight: 600;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      transition: all 0.2s ease;
+      text-decoration: none;
+    }
+    .btn-primary {
+      background: var(--terracotta);
+      color: white;
+    }
+    .btn-primary:hover { background: var(--terracotta-dark); }
+    .btn-outline {
+      border-color: var(--border);
+      background: white;
+      color: var(--text);
+    }
+    .btn-outline:hover { background: var(--sand); border-color: var(--terracotta); }
+    .btn-sathi {
+      background: #E8F5E9;
+      color: #1B5E20;
+      border-color: #C8E6C9;
+    }
+    .btn-sathi:hover { background: #C8E6C9; }
+
+    /* Hero Section */
+    .hero {
+      background: linear-gradient(rgba(42, 24, 16, 0.75), rgba(42, 24, 16, 0.75)), 
+                  url('https://images.unsplash.com/photo-1540574163026-643ea20ade25?auto=format&fit=crop&w=1600&q=80') center/cover no-repeat;
+      color: white;
+      padding: 70px 20px;
+      text-align: center;
+    }
+    .hero-content {
+      max-width: 820px;
+      margin: 0 auto;
+    }
+    .hero-tag {
+      display: inline-block;
+      padding: 5px 14px;
+      background: rgba(255, 255, 255, 0.15);
+      border: 1px solid rgba(255,255,255,0.3);
+      border-radius: 30px;
+      font-size: 0.8rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      margin-bottom: 16px;
+    }
+    .hero h1 {
+      font-family: 'Playfair Display', serif;
+      font-size: 2.8rem;
+      line-height: 1.2;
+      margin-bottom: 16px;
+    }
+    .hero p {
+      font-size: 1.15rem;
+      opacity: 0.9;
+      margin-bottom: 26px;
+      font-weight: 400;
+    }
+    .hero-buttons {
+      display: flex;
+      justify-content: center;
+      gap: 14px;
+      flex-wrap: wrap;
+    }
+
+    /* Startup Partnerships Banner */
+    .partners-strip {
+      background: white;
+      border-bottom: 1px solid var(--border);
+      padding: 14px 20px;
+    }
+    .partners-container {
+      max-width: 1240px;
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 16px;
+      font-size: 0.85rem;
+      color: var(--muted);
+    }
+    .partner-tags {
+      display: flex;
+      gap: 12px;
+      flex-wrap: wrap;
+    }
+    .partner-pill {
+      background: var(--sand);
+      border: 1px solid var(--border);
+      padding: 5px 12px;
+      border-radius: 20px;
+      font-weight: 600;
+      color: var(--wood-dark);
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    /* Main Container */
+    .container {
+      max-width: 1240px;
+      margin: 0 auto;
+      padding: 40px 20px;
+    }
+
+    /* Filter Bar */
+    .filter-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 24px;
+      flex-wrap: wrap;
+      gap: 16px;
+    }
+    .filter-pills {
+      display: flex;
+      gap: 8px;
+      flex-wrap: wrap;
+    }
+    .filter-btn {
+      padding: 8px 16px;
+      border-radius: 30px;
+      background: white;
+      border: 1px solid var(--border);
+      cursor: pointer;
+      font-size: 0.88rem;
+      font-weight: 500;
+      transition: all 0.2s;
+    }
+    .filter-btn.active, .filter-btn:hover {
+      background: var(--terracotta);
+      color: white;
+      border-color: var(--terracotta);
+    }
+
+    /* Product Grid */
+    .product-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+      gap: 24px;
+    }
+    .card {
+      background: var(--card-bg);
+      border-radius: var(--radius);
+      border: 1px solid var(--border);
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      box-shadow: var(--shadow);
+      transition: transform 0.2s, box-shadow 0.2s;
+      position: relative;
+    }
+    .card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 12px 30px rgba(42, 24, 16, 0.12);
+    }
+    .card-img-wrap {
+      position: relative;
+      height: 220px;
+      background: var(--sand-dark);
+      overflow: hidden;
+    }
+    .card-img-wrap img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.3s;
+    }
+    .card:hover .card-img-wrap img {
+      transform: scale(1.05);
+    }
+    .badge-artisan {
+      position: absolute;
+      top: 10px;
+      left: 10px;
+      background: rgba(255, 255, 255, 0.95);
+      color: var(--wood-dark);
+      font-size: 0.72rem;
+      font-weight: 600;
+      padding: 4px 10px;
+      border-radius: 20px;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+    }
+    .badge-heavy {
+      position: absolute;
+      top: 10px;
+      right: 10px;
+      background: #FFF3E0;
+      color: #E65100;
+      font-size: 0.72rem;
+      font-weight: 700;
+      padding: 4px 8px;
+      border-radius: 6px;
+      border: 1px solid #FFE0B2;
+    }
+
+    .card-body {
+      padding: 16px;
+      display: flex;
+      flex-direction: column;
+      flex: 1;
+    }
+    .artisan-meta {
+      font-size: 0.8rem;
+      color: var(--muted);
+      margin-bottom: 6px;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+    .card-title {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.15rem;
+      font-weight: 700;
+      color: var(--wood-dark);
+      margin-bottom: 6px;
+    }
+    .specs-tag {
+      font-size: 0.75rem;
+      background: var(--sand);
+      padding: 4px 8px;
+      border-radius: 4px;
+      color: var(--muted);
+      margin-bottom: 12px;
+      display: inline-block;
+    }
+    .price-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-top: auto;
+      padding-top: 12px;
+      border-top: 1px dashed var(--border);
+    }
+    .price {
+      font-size: 1.25rem;
+      font-weight: 700;
+      color: var(--wood-dark);
+    }
+    .price-cut {
+      font-size: 0.85rem;
+      color: var(--muted);
+      text-decoration: line-through;
+      margin-left: 4px;
+    }
+
+    .card-actions {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 8px;
+      margin-top: 12px;
+    }
+    .card-actions .btn {
+      width: 100%;
+      justify-content: center;
+      padding: 7px 10px;
+      font-size: 0.82rem;
+    }
+
+    /* Village Digital Sathi Section */
+    .sathi-feature {
+      margin-top: 60px;
+      background: linear-gradient(135deg, #FAF3E0 0%, #FFFFFF 100%);
+      border: 2px dashed #D7CCC8;
+      border-radius: var(--radius);
+      padding: 36px 30px;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 30px;
+      align-items: center;
+    }
+    .sathi-feature h2 {
+      font-family: 'Playfair Display', serif;
+      font-size: 2rem;
+      color: var(--wood-dark);
+      margin-bottom: 12px;
+    }
+    .sathi-points {
+      list-style: none;
+      margin-top: 16px;
+    }
+    .sathi-points li {
+      margin-bottom: 10px;
+      display: flex;
+      gap: 10px;
+      font-size: 0.95rem;
+    }
+
+    /* Modal Styling */
+    .modal-overlay {
+      position: fixed;
+      inset: 0;
+      background: rgba(0, 0, 0, 0.6);
+      display: none;
+      place-items: center;
+      z-index: 1000;
+      padding: 20px;
+    }
+    .modal-overlay.active { display: grid; }
+    .modal-box {
+      background: white;
+      max-width: 540px;
+      width: 100%;
+      border-radius: var(--radius);
+      padding: 28px;
+      position: relative;
+      max-height: 90vh;
+      overflow-y: auto;
+    }
+    .modal-close {
+      position: absolute;
+      top: 16px;
+      right: 18px;
+      background: none;
+      border: none;
+      font-size: 1.4rem;
+      cursor: pointer;
+      color: var(--muted);
+    }
+    .form-group {
+      margin-bottom: 14px;
+    }
+    .form-group label {
+      display: block;
+      font-size: 0.85rem;
+      font-weight: 600;
+      margin-bottom: 5px;
+      color: var(--wood-dark);
+    }
+    .form-group input, 
+    .form-group select, 
+    .form-group textarea {
+      width: 100%;
+      padding: 9px 12px;
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      font-family: inherit;
+      font-size: 0.9rem;
+    }
+    .voice-upload-box {
+      border: 2px dashed var(--terracotta);
+      background: #FDF7F4;
+      padding: 16px;
+      border-radius: 8px;
+      text-align: center;
+      cursor: pointer;
+      margin-bottom: 14px;
+    }
+
+    /* Floating Cart Drawer */
+    .cart-btn-fixed {
+      position: fixed;
+      bottom: 24px;
+      right: 24px;
+      background: var(--terracotta);
+      color: white;
+      padding: 14px 22px;
+      border-radius: 50px;
+      box-shadow: 0 6px 20px rgba(160, 82, 45, 0.4);
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      cursor: pointer;
+      z-index: 99;
+      font-weight: 700;
+      border: none;
+    }
+
+    /* Footer */
+    footer {
+      background: var(--wood-dark);
+      color: #E0D3C9;
+      padding: 50px 20px 20px;
+      margin-top: 70px;
+      font-size: 0.9rem;
+    }
+    .footer-grid {
+      max-width: 1240px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 30px;
+      margin-bottom: 30px;
+    }
+    .footer-bottom {
+      max-width: 1240px;
+      margin: 0 auto;
+      padding-top: 20px;
+      border-top: 1px solid rgba(255,255,255,0.1);
+      text-align: center;
+      font-size: 0.8rem;
+    }
+
+    @media (max-width: 768px) {
+      .sathi-feature { grid-template-columns: 1fr; }
+      .nav-links { display: none; }
+      .hero h1 { font-size: 2rem; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Top Announcement Bar -->
+  <div class="top-banner">
+    <div>🚀 <strong>Direct from Saharanpur, Jodhpur & Channapatna</strong> — No middleman commissions!</div>
+    <div>
+      <span>Language: </span>
+      <select id="langSelect" onchange="changeLanguage()" style="background:#4A2E1F; color:white; border:none; padding:2px 6px; border-radius:4px;">
+        <option value="en">English</option>
+        <option value="hi">हिंदी (Hindi)</option>
+        <option value="kn">ಕನ್ನಡ (Kannada)</option>
+        <option value="te">తెలుగు (Telugu)</option>
+      </select>
+    </div>
+  </div>
+
+  <!-- Header -->
+  <header>
+    <div class="nav-container">
+      <a href="#" class="logo-group">
+        <div class="logo-badge">आ</div>
+        <div>
+          <div class="brand-title">ArtisanHaat</div>
+          <div class="brand-sub">Village Craft & Wooden Works</div>
+        </div>
+      </a>
+
+      <ul class="nav-links">
+        <li><a href="#shop">Explore Catalog</a></li>
+        <li><a href="#furniture">Solid Wood Furniture</a></li>
+        <li><a href="#sathi">Digital Sathi (Village Network)</a></li>
+        <li><a href="#startups">Startup Tie-ups</a></li>
+      </ul>
+
+      <div class="nav-actions">
+        <button class="btn btn-sathi" onclick="openModal('sathiModal')">
+          🤝 Village Helper Mode
+        </button>
+        <button class="btn btn-primary" onclick="openModal('customOrderModal')">
+          ✨ Custom Dimension Request
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Hero Section -->
+  <section class="hero">
+    <div class="hero-content">
+      <div class="hero-tag">Empowering Rural Carpenters & Craftspersons</div>
+      <h1 id="heroTitle">Authentic Handcrafted Furniture Directly From Rural Workshops</h1>
+      <p id="heroSubtitle">Eliminating unfair middlemen markups. We bring seasoned Sheesham, Teak, and Mango wood masterpieces straight from the artisan's chisel to your home.</p>
+      <div class="hero-buttons">
+        <a href="#shop" class="btn btn-primary" style="padding: 12px 26px; font-size: 1rem;">Browse Wood & Crafts</a>
+        <button class="btn btn-outline" onclick="openModal('sathiModal')" style="padding: 12px 24px; font-size: 1rem;">
+          📱 Onboard a Village Artisan
+        </button>
+      </div>
+    </div>
+  </section>
+
+  <!-- Startup Integration Banner -->
+  <div class="partners-strip" id="startups">
+    <div class="partners-container">
+      <div><strong>Ecosystem Partnerships (Startup Grid):</strong></div>
+      <div class="partner-tags">
+        <div class="partner-pill">🚛 <span>Porter / Rivigo (Heavy Wood Freight)</span></div>
+        <div class="partner-pill">📐 <span>Livspace & Studio Designers (B2B Sourcing)</span></div>
+        <div class="partner-pill">💳 <span>Rural Fintech Micro-Advance for Timber</span></div>
+        <div class="partner-pill">🛡️ <span>PM Vishwakarma Artisan Certified</span></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Main Shop Section -->
+  <main class="container" id="shop">
+    <div class="filter-header">
+      <div>
+        <h2 style="font-family:'Playfair Display',serif; font-size: 1.8rem; color:var(--wood-dark);">Curated Handcrafted Collections</h2>
+        <p style="font-size:0.9rem; color:var(--muted);">All items include wood seasoning certifications and artisan origin details.</p>
+      </div>
+
+      <div class="filter-pills">
+        <button class="filter-btn active" onclick="filterItems('all')">All Works</button>
+        <button class="filter-btn" onclick="filterItems('furniture')">🪑 Wooden Furniture</button>
+        <button class="filter-btn" onclick="filterItems('handicraft')">🏺 Pottery & Decor</button>
+        <button class="filter-btn" onclick="filterItems('textile')">🧵 Loom & Textiles</button>
+      </div>
+    </div>
+
+    <!-- Product Grid -->
+    <div class="product-grid" id="productContainer">
+      <!-- Injected via JavaScript -->
+    </div>
+
+    <!-- Digital Sathi (Village Assisted Onboarding) Banner -->
+    <section class="sathi-feature" id="sathi">
+      <div>
+        <span style="color:var(--terracotta); font-weight:700; font-size:0.85rem; text-transform:uppercase; letter-spacing:0.05em;">Grassroots Digital Inclusion</span>
+        <h2>How We Help Village Artisans Who Lack Tech Awareness</h2>
+        <p style="color:var(--muted); margin-top:8px;">Many elderly carpenters and craftspersons do not use smartphones or read English. Our <strong>Digital Sathi Model</strong> bridges this gap:</p>
+        
+        <ul class="sathi-points">
+          <li>
+            <span>🎙️</span>
+            <div><strong>Voice & WhatsApp Listing:</strong> Artisans simply send WhatsApp voice notes and pictures. Our local Sathi builds their catalog.</div>
+          </li>
+          <li>
+            <span>🏡</span>
+            <div><strong>Local Sathi Commissions:</strong> Village youth and Common Service Centres (CSCs) earn a 3% incentive for assisting artisans with order photos and packaging.</div>
+          </li>
+          <li>
+            <span>📦</span>
+            <div><strong>Doorstep Freight Pickup:</strong> Startups handle crate packaging and heavy trucking so the artisan never worries about courier logistics.</div>
+          </li>
+        </ul>
+
+        <div style="margin-top: 22px;">
+          <button class="btn btn-primary" onclick="openModal('sathiModal')">Open Digital Sathi Upload Console</button>
+        </div>
+      </div>
+
+      <div style="background:white; padding:22px; border-radius:12px; border:1px solid var(--border); box-shadow:var(--shadow);">
+        <h3 style="font-family:'Playfair Display',serif; margin-bottom:12px; color:var(--wood-dark);">Artisan Voice Testimonial</h3>
+        <p style="font-style:italic; font-size:0.95rem; color:#4E342E; margin-bottom:14px;">
+          "I have been carving Sheesham wood for 34 years in Nagina, UP. Traders used to buy our coffee tables for ₹1,200 and sell them in metro stores for ₹7,000. Now via the Village Sathi, I sell directly for ₹3,900 and receive payment right into my bank account."
+        </p>
+        <div style="display:flex; align-items:center; gap:12px;">
+          <div style="width:42px; height:42px; border-radius:50%; background:#8D6E63; color:white; display:grid; place-items:center; font-weight:700;">आर</div>
+          <div>
+            <div style="font-weight:700; font-size:0.9rem;">Ram Swaroop Sharma</div>
+            <div style="font-size:0.75rem; color:var(--muted);">Master Woodcarver, Nagina (UP)</div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Cart Floating Button -->
+  <button class="cart-btn-fixed" onclick="alert('Viewing Cart: ' + cart.length + ' items selected. Checkout connects directly to artisan Escrow account.')">
+    🛒 <span id="cartCount">0 Items</span> | ₹<span id="cartTotal">0</span>
+  </button>
+
+  <!-- MODAL 1: Digital Sathi Upload (For Low-literacy Village Onboarding) -->
+  <div class="modal-overlay" id="sathiModal">
+    <div class="modal-box">
+      <button class="modal-close" onclick="closeModal('sathiModal')">&times;</button>
+      <h3 style="font-family:'Playfair Display',serif; margin-bottom:6px; color:var(--wood-dark);">Village Assisted Listing (डिजिटल साथी)</h3>
+      <p style="font-size:0.85rem; color:var(--muted); margin-bottom:16px;">Use this simple form to list a village carpenter's creation without complicated typing.</p>
+
+      <form onsubmit="handleSathiSubmit(event)">
+        <div class="form-group">
+          <label>Artisan Name & Village</label>
+          <input type="text" placeholder="e.g. Ramesh Suthar, Channapatna" required />
+        </div>
+
+        <div class="form-group">
+          <label>Item Name / Craft Type</label>
+          <input type="text" placeholder="e.g. Hand-carved Solid Teak Rocking Chair" required />
+        </div>
+
+        <div class="form-group">
+          <label>Material / Wood Type</label>
+          <select>
+            <option>Seasoned Sheesham Wood (Rosewood)</option>
+            <option>Reclaimed Teak Wood (Sagwan)</option>
+            <option>Natural Mango Wood with Clear Coat</option>
+            <option>Clay / Terracotta</option>
+            <option>Natural Cotton / Bamboo Weave</option>
+          </select>
+        </div>
+
+        <div class="voice-upload-box" onclick="simulateVoiceRecord(this)">
+          <div style="font-size:1.8rem; margin-bottom:4px;">🎙️</div>
+          <strong>Tap to Record Artisan's Voice Description</strong>
+          <div style="font-size:0.78rem; color:var(--muted); margin-top:4px;">Talk in local language about sizes, wood finish, and expected price.</div>
+        </div>
+
+        <div class="form-group">
+          <label>Expected Price (₹ in Artisan's Hand)</label>
+          <input type="number" placeholder="₹ 3,500" required />
+        </div>
+
+        <div class="form-group">
+          <label>Select Freight Handling</label>
+          <select>
+            <option>Standard Courier (Small Goods &lt; 5kg)</option>
+            <option>Heavy Freight Partner (Porter / Rivigo Wooden Crate)</option>
+          </select>
+        </div>
+
+        <button type="submit" class="btn btn-primary" style="width:100%; justify-content:center; padding:11px;">
+          Submit for Quality Verification & Publish
+        </button>
+      </form>
+    </div>
+  </div>
+
+  <!-- MODAL 2: Custom Dimensions / Interior Designer Request -->
+  <div class="modal-overlay" id="customOrderModal">
+    <div class="modal-box">
+      <button class="modal-close" onclick="closeModal('customOrderModal')">&times;</button>
+      <h3 style="font-family:'Playfair Display',serif; margin-bottom:6px; color:var(--wood-dark);">Custom Made-to-Order Request</h3>
+      <p style="font-size:0.85rem; color:var(--muted); margin-bottom:16px;">Direct collaboration with local carpenters for custom sizes and finishes.</p>
+
+      <form onsubmit="handleCustomSubmit(event)">
+        <div class="form-group">
+          <label>Your Name & City</label>
+          <input type="text" placeholder="e.g. Priya Sharma, Bengaluru" required />
+        </div>
+        <div class="form-group">
+          <label>Select Furniture Category</label>
+          <select id="customType">
+            <option>Dining Table & Chairs</option>
+            <option>Solid Wood Study Desk</option>
+            <option>Traditional Hand-Carved Swings (Jhula)</option>
+            <option>Consoles & TV Credenzas</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label>Dimensions & Wood Choice</label>
+          <textarea rows="3" placeholder="e.g. Length: 5ft, Width: 3ft in natural oil-finished Teak Wood." required></textarea>
+        </div>
+        <div class="form-group">
+          <label>Upload Reference Photo / Sketch (Optional)</label>
+          <input type="file" />
+        </div>
+        <button type="submit" class="btn btn-primary" style="width:100%; justify-content:center; padding:11px;">
+          Send Specifications to Regional Master Carpenters
+        </button>
+      </form>
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <footer>
+    <div class="footer-grid">
+      <div>
+        <div style="font-family:'Playfair Display',serif; font-size:1.4rem; font-weight:700; color:white; margin-bottom:10px;">ArtisanHaat</div>
+        <p style="font-size:0.85rem; line-height:1.6;">Bridging ancient woodworking, pottery, and textile heritages with modern logistics and fair digital trade.</p>
+      </div>
+
+      <div>
+        <h4 style="color:white; margin-bottom:12px;">Categories</h4>
+        <p>• Carved Solid Wood Furniture</p>
+        <p>• Saharanpur Woodcrafts</p>
+        <p>• Channapatna Toy & Turnery</p>
+        <p>• Terracotta Clayware</p>
+      </div>
+
+      <div>
+        <h4 style="color:white; margin-bottom:12px;">Rural Initiatives</h4>
+        <p>• Village Digital Sathi Portal</p>
+        <p>• PM Vishwakarma Tie-up</p>
+        <p>• Startup Freight Alliances</p>
+        <p>• Escrow Fair-Payment Guarantee</p>
+      </div>
+
+      <div>
+        <h4 style="color:white; margin-bottom:12px;">Student Project Credit</h4>
+        <p style="font-size:0.85rem;">Designed by:</p>
+        <p style="font-size:0.85rem; font-weight:600; color:#F5B041;">Lakshman Reddy M | Ajay | Pruthvi Charan</p>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      &copy; 2026 ArtisanHaat — Preserving Tradition. Connecting Craft with the Future.
+    </div>
+  </footer>
+
+  <!-- Interactive JavaScript Logic -->
+  <script>
+    // Sample Products emphasizing Handcrafted Wooden Furniture + Crafts
+    const products = [
+      {
+        id: 1,
+        title: "Sheesham Carved Armchair",
+        category: "furniture",
+        price: 6800,
+        originalPrice: 12500,
+        artisan: "Master Badhai Ram Swaroop",
+        village: "Saharanpur, Uttar Pradesh",
+        specs: "Seasoned Sheesham Wood | Walnut Finish",
+        heavy: true,
+        img: "https://images.unsplash.com/photo-1580481077191-735c13de279f?auto=format&fit=crop&w=600&q=80"
+      },
+      {
+        id: 2,
+        title: "Reclaimed Teak Wood Coffee Table",
+        category: "furniture",
+        price: 8400,
+        originalPrice: 16000,
+        artisan: "Kalu Ram Mistri",
+        village: "Pali, Rajasthan",
+        specs: "100% Solid Teak | Natural Matte Wax",
+        heavy: true,
+        img: "https://images.unsplash.com/photo-1533090161767-e6ffed986c88?auto=format&fit=crop&w=600&q=80"
+      },
+      {
+        id: 3,
+        title: "Hand-turned Channapatna Lacquer Vases",
+        category: "handicraft",
+        price: 1250,
+        originalPrice: 2200,
+        artisan: "B. Gowda & Family",
+        village: "Channapatna, Karnataka",
+        specs: "Ivory Wood | Natural Vegetable Dyes",
+        heavy: false,
+        img: "https://images.unsplash.com/photo-1578749556568-bc2c40e68b61?auto=format&fit=crop&w=600&q=80"
+      },
+      {
+        id: 4,
+        title: "Live-Edge Solid Mango Wood Bench",
+        category: "furniture",
+        price: 5200,
+        originalPrice: 9500,
+        artisan: "Devendra Suthar",
+        village: "Jodhpur, Rajasthan",
+        specs: "Single-slab Mango Wood | Iron Legs",
+        heavy: true,
+        img: "https://images.unsplash.com/photo-1538688525198-9b88f6f53126?auto=format&fit=crop&w=600&q=80"
+      },
+      {
+        id: 5,
+        title: "Intricate Terracotta Water Pitcher",
+        category: "handicraft",
+        price: 890,
+        originalPrice: 1500,
+        artisan: "Radha Devi & SHG",
+        village: "Gorakhpur, Uttar Pradesh",
+        specs: "Riverbank Red Clay | Mica Glaze",
+        heavy: false,
+        img: "https://images.unsplash.com/photo-1610701596007-11502861dcfa?auto=format&fit=crop&w=600&q=80"
+      },
+      {
+        id: 6,
+        title: "Hand-Block Printed Dabu Cotton Throw",
+        category: "textile",
+        price: 1450,
+        originalPrice: 2800,
+        artisan: "Ibrahim Chippa",
+        village: "Bagru, Rajasthan",
+        specs: "100% Organic Indigo & Mud Resist",
+        heavy: false,
+        img: "https://images.unsplash.com/photo-1606744837616-56c9a5c6a6eb?auto=format&fit=crop&w=600&q=80"
+      }
+    ];
+
+    let cart = [];
+
+    // Render Products
+    function renderProducts(items) {
+      const container = document.getElementById('productContainer');
+      container.innerHTML = "";
+
+      items.forEach(p => {
+        const card = document.createElement('div');
+        card.className = 'card';
+        card.innerHTML = `
+          <div class="card-img-wrap">
+            <img src="${p.img}" alt="${p.title}" loading="lazy">
+            <span class="badge-artisan">📍 ${p.village}</span>
+            ${p.heavy ? '<span class="badge-heavy">📦 Heavy Freight (Porter)</span>' : ''}
+          </div>
+          <div class="card-body">
+            <div class="artisan-meta">🔨 By ${p.artisan}</div>
+            <h3 class="card-title">${p.title}</h3>
+            <span class="specs-tag">${p.specs}</span>
+            <div class="price-row">
+              <div>
+                <span class="price">₹${p.price.toLocaleString()}</span>
+                <span class="price-cut">₹${p.originalPrice.toLocaleString()}</span>
+              </div>
+              <span style="font-size:0.75rem; color:var(--green); font-weight:700;">Direct Fair Price</span>
+            </div>
+            <div class="card-actions">
+              <button class="btn btn-outline" onclick="requestCustom('${p.title}')">Custom Size</button>
+              <button class="btn btn-primary" onclick="addToCart(${p.id})">Add to Cart</button>
+            </div>
+          </div>
+        `;
+        container.appendChild(card);
+      });
+    }
+
+    // Filter Logic
+    function filterItems(cat) {
+      document.querySelectorAll('.filter-btn').forEach(btn => btn.classList.remove('active'));
+      event.target.classList.add('active');
+
+      if (cat === 'all') {
+        renderProducts(products);
+      } else {
+        const filtered = products.filter(p => p.category === cat);
+        renderProducts(filtered);
+      }
+    }
+
+    // Cart Handlers
+    function addToCart(id) {
+      const item = products.find(p => p.id === id);
+      cart.push(item);
+      updateCartDisplay();
+    }
+
+    function updateCartDisplay() {
+      document.getElementById('cartCount').innerText = `${cart.length} Item${cart.length !== 1 ? 's' : ''}`;
+      const total = cart.reduce((sum, item) => sum + item.price, 0);
+      document.getElementById('cartTotal').innerText = total.toLocaleString();
+    }
+
+    // Modal Triggers
+    function openModal(id) {
+      document.getElementById(id).classList.add('active');
+    }
+
+    function closeModal(id) {
+      document.getElementById(id).classList.remove('active');
+    }
+
+    function requestCustom(itemTitle) {
+      openModal('customOrderModal');
+      document.getElementById('customType').value = itemTitle.includes('Chair') || itemTitle.includes('Table') ? 'Dining Table & Chairs' : 'Solid Wood Study Desk';
+    }
+
+    // Simulated Voice Record Feature for Rural helper
+    function simulateVoiceRecord(el) {
+      el.innerHTML = "🔴 <strong>Recording Audio in Hindi/Local Language... (5s)</strong><div style='font-size:0.8rem; margin-top:4px;'>Listening to artisan's specifications...</div>";
+      el.style.borderColor = "red";
+      setTimeout(() => {
+        el.innerHTML = "✅ <strong>Audio Recorded (12 seconds)</strong><div style='font-size:0.75rem; color:green; margin-top:4px;'>Converted: '4 chairs, seasoned Sheesham, 25kg each, ₹3,500 demand'</div>";
+        el.style.borderColor = "green";
+      }, 2500);
+    }
+
+    // Handlers for forms
+    function handleSathiSubmit(e) {
+      e.preventDefault();
+      alert("🎉 Product successfully listed via Digital Sathi network! Quality & wood authenticity check assigned to regional hub coordinator.");
+      closeModal('sathiModal');
+    }
+
+    function handleCustomSubmit(e) {
+      e.preventDefault();
+      alert("✅ Custom dimensions sent to local artisan clusters! You will receive a direct estimate and wood grain sample via WhatsApp within 24 hours.");
+      closeModal('customOrderModal');
+    }
+
+    // Language switcher simulation
+    function changeLanguage() {
+      const lang = document.getElementById('langSelect').value;
+      const heroTitle = document.getElementById('heroTitle');
+      const heroSub = document.getElementById('heroSubtitle');
+
+      if (lang === 'hi') {
+        heroTitle.innerText = "गाँव के बढ़ई और शिल्पकारों से सीधा असली लकड़ी का फर्नीचर";
+        heroSub.innerText = "बिना किसी दलाल के। शीशम, सागवान और आम की असली नक्काशीदार लकड़ी सीधे आपके घर।";
+      } else if (lang === 'kn') {
+        heroTitle.innerText = "ಗ್ರಾಮೀಣ ಬಡಗಿಗಳಿಂದ ನೇರವಾಗಿ ಕೈಯಿಂದ ಮಾಡಿದ ಮರದ ಪೀಠೋಪಕರಣಗಳು";
+        heroSub.innerText = "ಮಧ್ಯವರ್ತಿಗಳಿಲ್ಲದೆ ಸಾಂಪ್ರದಾಯಿಕ ಶೀಶಮ್ ಮತ್ತು ತೇಗದ ಪೀಠೋಪಕರಣಗಳನ್ನು ಪಡೆಯಿರಿ.";
+      } else if (lang === 'te') {
+        heroTitle.innerText = "గ్రామీణ కళాకారుల చేతితో తయారుచేసిన కొయ్య ఫర్నిచర్";
+        heroSub.innerText = "మధ్యవర్తులు లేకుండా నేరుగా గ్రామాల నుండి స్వచ్ఛమైన టేకు మరియు ఇనుపమద్ది కలప వస్తువులు.";
+      } else {
+        heroTitle.innerText = "Authentic Handcrafted Furniture Directly From Rural Workshops";
+        heroSub.innerText = "Eliminating unfair middlemen markups. We bring seasoned Sheesham, Teak, and Mango wood masterpieces straight from the artisan's chisel to your home.";
+      }
+    }
+
+    // Initial Load
+    renderProducts(products);
+  </script>
+</body>
+</html>
